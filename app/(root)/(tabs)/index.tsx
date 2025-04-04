@@ -1,5 +1,6 @@
 import { Pressable, Text, View } from "react-native";
 import { Link } from "expo-router";
+import { logout } from "@/lib/appwrite";
 
 export default function Index() {
   return (
@@ -13,6 +14,9 @@ export default function Index() {
       <Link href="/sign-in" className="my-5">
         Sign In
       </Link>
+      <Pressable onPress={logout}>
+        <Text>Logout</Text>
+      </Pressable>
     </View>
   );
 }
