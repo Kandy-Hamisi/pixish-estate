@@ -3,7 +3,7 @@ import * as Linking from "expo-linking";
 import { openAuthSessionAsync } from "expo-web-browser";
 
 export const config = {
-  platform: "com.kandydev.pixishrestate",
+  platform: "com.kandydev.restate",
   endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT,
   projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID,
 };
@@ -27,7 +27,8 @@ export async function login() {
       redirectUri,
     );
 
-    if (!response) throw new Error("Failed to login");
+    if (!response) throw new Error("Create OAuth2 Failed");
+
     const browserResult = await openAuthSessionAsync(
       response.toString(),
       redirectUri,
@@ -58,6 +59,7 @@ export async function logout() {
   try {
     await account.deleteSession("current");
     console.log("Logout Successfully");
+    return true;
   } catch (error) {
     console.error(error);
     return false;
