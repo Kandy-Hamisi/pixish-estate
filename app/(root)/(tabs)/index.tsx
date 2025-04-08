@@ -1,10 +1,11 @@
-import { Pressable, Text, View, Image } from "react-native";
+import { Pressable, Text, View, Image, TouchableOpacity } from "react-native";
 import { Link, useRouter } from "expo-router";
 import { logout } from "@/lib/appwrite";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import images from "@/constants/images";
 import { useGlobalContext } from "@/lib/global-provider";
+import Search from "@/components/Search";
 
 export default function Index() {
   const router = useRouter();
@@ -23,6 +24,20 @@ export default function Index() {
                 {user?.name}
               </Text>
             </View>
+          </View>
+        </View>
+        <Search />
+        {/*  featured */}
+        <View className="my-5">
+          <View className="flex flex-row items-center justify-between">
+            <Text className="text-xl font-rubik-bold text-black-300">
+              Featured
+            </Text>
+            <TouchableOpacity>
+              <Text className="text-base font-rubik-bold text-primary-300">
+                See All
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
