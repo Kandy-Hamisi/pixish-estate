@@ -7,6 +7,7 @@ import images from "@/constants/images";
 import { useGlobalContext } from "@/lib/global-provider";
 import Search from "@/components/Search";
 import { Card, FeatureCard } from "@/components/Cards";
+import Filters from "@/components/Filters";
 
 export default function Index() {
   const router = useRouter();
@@ -57,6 +58,7 @@ export default function Index() {
             </Text>
           </TouchableOpacity>
         </View>
+        <Filters />
 
         <View className="flex flex-row gap-5 mt-5">
           <Card />
